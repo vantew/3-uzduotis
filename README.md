@@ -112,6 +112,7 @@ Installerio susikurimas:
 -  light Product.wixobj -o setup.msi
 -  candle Bundle.wxs -ext WixBalExtension
 -  light Bundle.wixobj -ext WixBalExtension -o StudentDataAnalysisInstaller.exe
+-  tada galima jau paleisti installeri, kuris taip pat sukurs shortcuta Desktope
 
 Papildoma informacija apie installeri:
 -  Setup failas automatiškai įjungia administravimo teisės paleidžiamai programai
