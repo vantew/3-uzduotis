@@ -117,3 +117,7 @@ Installerio susikurimas:
 Papildoma informacija apie installeri:
 -  Setup failas automatiškai įjungia administravimo teisės paleidžiamai programai
 -  Programa idiegiama tokiu keliu: "C:/Program files/VU/Vardenis-Pavardenis" aplankale
+-  atkreipkite demesi, kad norint paleisti kai kurias komandas, reikia buti atsisiuntus/tureti
+   - License.rtf
+   - Windows SDK
+   - Nuget tools
