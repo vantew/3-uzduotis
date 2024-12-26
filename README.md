@@ -103,5 +103,16 @@ Unit test paleidimo instrukcija:
 - rezultate pamatysite toki outputa:
  <img width="718" alt="Screenshot 2024-12-21 at 11 35 23" src="https://github.com/user-attachments/assets/3903c990-9c2d-4fd4-8f1c-04843827348d" />
 
+Installerio susikurimas:
+- atsisiunciame Product.wxs, Bundle.wxs ir Student_App.manifest kartu su kitais failais is sios repozitorijos
+- uztikriname, kad yra sukurtas .exe failas (instrukcijos pateiktos auksciau)
+- atsidarome terminala, ir tokia pat eiga ikopijuojame sias komandas (nuorodus i failus pakeiskite pagal save)
+-  & "C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\arm64\mt.exe" -manifest "path\to\Student_App.manifest" -outputresource:"path\to\Student_App.exe;1"
+-  candle Product.wxs
+-  light Product.wixobj -o setup.msi
+-  candle Bundle.wxs -ext WixBalExtension
+-  light Bundle.wixobj -ext WixBalExtension -o StudentDataAnalysisInstaller.exe
 
-
+Papildoma informacija apie installeri:
+-  Setup failas automatiškai įjungia administravimo teisės paleidžiamai programai
+-  Programa idiegiama tokiu keliu: "C:/Program files/VU/Vardenis-Pavardenis" aplankale
