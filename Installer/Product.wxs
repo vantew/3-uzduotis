@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product Id="*" Name="STUDENTŲ DUOMENŲ ANALIZĖ" Version="3.0.0.0" Manufacturer="vante" Language="1033" UpgradeCode="a247ed27-3c4b-4799-9bae-e468255cf12a" Codepage="65001">
+        <Package InstallerVersion="200" Compressed="yes" InstallPrivileges="elevated" InstallScope="perMachine" />
+
+        <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+        <MediaTemplate />
+
+        <Feature Id="ProductFeature" Title="STUDENTŲ DUOMENŲ ANALIZĖ" Level="1">
+            <ComponentGroupRef Id="ProductComponents" />
+            <ComponentRef Id="MyProgramMenuFolderComponent" />
+        </Feature>
+
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="ProgramFilesFolder">
+                <Directory Id="VUFolder" Name="VU">
+                    <Directory Id="INSTALLFOLDER" Name="Vilte_Jasilionyte">
+                        <Component Id="ExecutableComponent" Guid="e1e52c3d-ae42-4895-bd2e-9fd508e8ae33">
+                            <File Id="ExecutableFile" Source="C:\Users\vlue1\Desktop\2 uzduotis\Installer\MyApp\Student_App.exe" KeyPath="yes" Checksum="yes" />
+                        </Component>
+                        <Component Id="DesktopShortcutComponent" Guid="d2f29c3e-b123-4e39-85f7-2b8d7c123456">
+                            <Shortcut Id="DesktopShortcut"
+                                      Directory="DesktopFolder"
+                                      Name="STUDENTŲ DUOMENŲ ANALIZĖ"
+                                      WorkingDirectory="INSTALLFOLDER"
+                                      Advertise="no"
+                                      Target="[INSTALLFOLDER]Student_App.exe" />
+                            <RegistryValue Root="HKCU"
+                                           Key="Software\VilteJasilionyte\STUDENTU_DUOMENU_ANALIZE\Shortcut"
+                                           Name="DesktopShortcut"
+                                           Type="integer"
+                                           Value="1"
+                                           KeyPath="yes" />
+                        </Component>
+                        <Component Id="SrcFilesComponent" Guid="5c4f1234-5678-9abc-def0-1234567890ab">
+                            <File Id="StudgenerationFile" Source="C:\Users\vlue1\Desktop\2 uzduotis\src\studgeneration.cpp" />
+                            <File Id="ZmogusCppFile" Source="C:\Users\vlue1\Desktop\2 uzduotis\src\Zmogus.cpp" />
+                            <File Id="StudentaiFile" Source="C:\Users\vlue1\Desktop\2 uzduotis\src\studentai10000.txt" />
+                            <File Id="MainCppFile" Source="C:\Users\vlue1\Desktop\2 uzduotis\src\main.cpp" />
+                            <File Id="StudCppFile" Source="C:\Users\vlue1\Desktop\2 uzduotis\src\Stud.cpp" />
+                        </Component>
+                        <Component Id="IncludeFilesComponent" Guid="6d5e1234-5678-9abc-def0-1234567890ac">
+                            <File Id="ZmogusHFile" Source="C:\Users\vlue1\Desktop\2 uzduotis\include\Zmogus.h" />
+                            <File Id="MylibHFile" Source="C:\Users\vlue1\Desktop\2 uzduotis\include\Mylib.h" />
+                            <File Id="StudHFile" Source="C:\Users\vlue1\Desktop\2 uzduotis\include\Stud.h" />
+                        </Component>
+                        <Component Id="MiscFilesComponent" Guid="7e6f1234-5678-9abc-def0-1234567890ad">
+                            <File Id="ReadmeFile" Source="C:\Users\vlue1\Desktop\2 uzduotis\README.md" />
+                            <File Id="CMakeListsFile" Source="C:\Users\vlue1\Desktop\2 uzduotis\CMakeLists.txt" />
+                        </Component>
+                    </Directory>
+                </Directory>
+            </Directory>
+            <Directory Id="ProgramMenuFolder" Name="Programs">
+                <Directory Id="MyProgramMenuFolder" Name="Vilte_Jasilionyte">
+                    <Component Id="MyProgramMenuFolderComponent" Guid="6b8f627f-44fc-482b-85fa-4b9cf9c5f24b">
+                        <RemoveFolder Id="RemoveMyProgramMenuFolder" On="uninstall" />
+                        <RegistryValue Root="HKCU" Key="Software\VilteJasilionyte\STUDENTU_DUOMENU_ANALIZE" Name="Installed" Type="integer" Value="1" KeyPath="yes" />
+                    </Component>
+                </Directory>
+            </Directory>
+            <Directory Id="DesktopFolder" Name="Desktop" />
+        </Directory>
+    </Product>
+
+    <Fragment>
+        <ComponentGroup Id="ProductComponents">
+            <ComponentRef Id="ExecutableComponent" />
+            <ComponentRef Id="DesktopShortcutComponent" />
+            <ComponentRef Id="SrcFilesComponent" />
+            <ComponentRef Id="IncludeFilesComponent" />
+            <ComponentRef Id="MiscFilesComponent" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>

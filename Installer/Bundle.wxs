@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:bal="http://schemas.microsoft.com/wix/BalExtension">
+    <Bundle Name="STUDENTŲ DUOMENŲ ANALIZĖ Installer" Version="3.0.0.0" Manufacturer="vante" UpgradeCode="a247ed27-3c4b-4799-9bae-e468255cf12a">
+        <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense">
+            <bal:WixStandardBootstrapperApplication
+                LicenseFile="C:\Users\vlue1\Desktop\License.rtf"
+                SuppressOptionsUI="yes" />
+        </BootstrapperApplicationRef>
+
+        <Chain>
+            <MsiPackage SourceFile="setup.msi" />
+        </Chain>
+    </Bundle>
+</Wix>
